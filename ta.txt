@@ -1,0 +1,21 @@
+SPIS TREŚCI Po tych lekcjach wymagane jest projektowanie i programowanie następujących algorytmów:
+
+1. Algorytm-przejście przez jezdnię ZADANIE DOMOWE - pominąć
+
+2. Algorytmy-obliczen matematycznych: obliczanie pola i obwodu trójkąta oraz kwadratu, prostokąta i rabu itd...
+
+3. Algorytm-sprawdzający, czy liczba jest liczbą pierwszą
+
+4. Algorytm-obl. średniej arytmetycznej
+
+5 Algorytm-rejestracja pacjenta ZADANIE DOMOWE - pominąć
+
+6 Algorytm-wyszukaj muzz
+
+7. Algorytm-sinia
+
+8. Algorytm wyszukaj parzyste
+
+9. Algorytrn-zliczanie liczb nieparzystych
+
+10. Algorytm-Wieze hanoi - pominąć 
