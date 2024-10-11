@@ -1,97 +1,148 @@
-"""
-This is the Template Repl for Python with Turtle.
-Python with Turtle lets you make graphics easily in Python.
-Check out the official docs here: https://docs.python.org/3/library/turtle.html
-"""
 import turtle
 
 t = turtle.Turtle()
 
-# Tworzę funkcję przesuń() aby nie pisać za każdym razem   t.penup() t.goto(xo, yo) t.pendown()
-# zamiast trzy linie powtarzać bedę wywoływał funkcie przesun()
-# funkcja ta ma trzy rzeczy
-def przesun(xp,yp):
-  t.penup() # podniesienie
-  t.goto(xp,yp) # przeniesienie pisaka w punkt o dóch współrzędnych
-  t.pendown() # schowanie pisaka
+
+def przesun(xp, yp):
+       t.penup()
+       t.goto(xp, yp)
+       t.pendown()
+
 
 def okno(xo, yo, kolor="cyan"):
-  # instrukcje rysujące okno w punkcie xo, yo
-  # wypełnienie kolorem 'kolor'
-  # Najpierw jest schowanie pisaka i wyznaczam miejsce gdzie okno ma się zaczynać
-  przesun(xo,yo)
 
-  t.fillcolor(kolor) # ustawie KOLORU wypełniała
-  t.begin_fill() # rozpoczęcie wypełniania
-  t.goto(xo+20,yo) # cztery kreski, żółw się już przemiwszcza z pisakiem W PRAWO
-  t.goto(xo+20,yo-20) # po krawędziach okna W DÓŁ
-  t.goto(xo,yo-20) # W LEWO
-  t.goto(xo,yo) # W GÓRĘ
-  t.end_fill() # Zakończenie wypełniania
+       przesun(xo, yo)
 
-  przesun(xo+10,yo)
-  t.goto(xo+10, yo-20)
+       t.fillcolor(kolor)
+       t.begin_fill()
+       t.goto(xo + 20, yo)
+       t.goto(xo + 20, yo - 20)
+       t.goto(xo, yo - 20)
+       t.goto(xo, yo)
+       t.end_fill()
 
-  przesun(xo,yo-10)
-  t.goto(xo+20, yo-10)
+       przesun(xo + 10, yo)
+       t.goto(xo + 10, yo - 20)
 
-def domek(x,y,kolor_domu, kolor_dachu):
-  # instrukcje rysujące domek w punkcie x,y w kolorze 'kolor_domu'
-  # z dachem w kolorze 'kolor_dachu'
-  # wywołujące dwukrotnie funkcję rysującą okno
-
-  #bryła budynku
-  przesun(x,y)
-  t.fillcolor(kolor_domu)
-  t.begin_fill()
-  t.goto(x+70,y) # cztery kreski, żółw się już przemiwszcza z pisakiem W PRAWO
-  t.goto(x+70,y-70) # po krawędziach okna W DÓŁ
-  t.goto(x,y-70) # W LEWO
-  t.goto(x,y) # W GÓRĘ
-  t.end_fill() # Zakończenie wypełniania
+       przesun(xo, yo - 10)
+       t.goto(xo + 20, yo - 10)
 
 
-  okno(x+10,y-10) # współrzędne okna
-  okno(x+40,y-10, "yellow")
+def drzewo(x, y):
+       przesun(x, y)
+       t.fillcolor("brown")
+       t.begin_fill()
+       t.goto(x + 10, y)
+       t.goto(x + 10, y + 40)
+       t.goto(x, y + 40)
+       t.goto(x, y)
+       t.end_fill()
 
-  #drzwi
-  przesun(x+25,y-40)
-  t.fillcolor(kolor_dachu)
-  t.begin_fill()
-  t.goto(x+45,y-40) # cztery kreski, żółw się już przemiwszcza z pisakiem W PRAWO
-  t.goto(x+75,y-70) # po krawędziach okna W DÓŁ
-  t.goto(x+25,y-70) # W LEWO
-  t.goto(x+25,y-40) # W GÓRĘ
-  t.end_fill() # Zakończenie wypełniania
+       przesun(x + 5, y + 40)
+       t.fillcolor("green")
+       t.begin_fill()
+       t.circle(25)
+       t.end_fill()
 
-  #dach
-  przesun(x-10,y)
-  t.fillcolor(kolor_dachu)
-  t.begin_fill()
-  t.goto(x+35,y+45) # cztery kreski, żółw się już przemiwszcza z pisakiem W PRAWO
-  t.goto(x+80,y) # po krawędziach okna W DÓŁ
-  t.goto(x-10,y) # W LEWO
-  t.end_fill() # Zakończenie wypełniania
+
+def slonce():
+       przesun(300, 130)
+       t.fillcolor("yellow")
+       t.begin_fill()
+       t.circle(50)
+       t.end_fill()
+
+def domek(x, y, kolor_domu, kolor_dachu):
+
+       przesun(x, y)
+       t.fillcolor(kolor_domu)
+       t.begin_fill()
+       t.goto(x + 70,
+              y)  # cztery kreski, żółw się już przemiwszcza z pisakiem W PRAWO
+       t.goto(x + 70, y - 70)  # po krawędziach okna W DÓŁ
+       t.goto(x, y - 70)  # W LEWO
+       t.goto(x, y)  # W GÓRĘ
+       t.end_fill()  # Zakończenie wypełniania
+
+       okno(x + 10, y - 10)
+       okno(x + 40, y - 10, "yellow")
+
+       #drzwi
+       przesun(x + 25, y - 40)
+       t.fillcolor(kolor_dachu)
+       t.begin_fill()
+       t.goto(x + 45, y - 40)
+       t.goto(x + 45, y - 70)
+       t.goto(x + 25, y - 70)
+       t.goto(x + 25, y - 40)
+       t.end_fill()
+
+       #dach
+       przesun(x - 10, y)
+       t.fillcolor(kolor_dachu)
+       t.begin_fill()
+       t.goto(x + 35, y + 45)
+       t.goto(x + 80, y)
+       t.goto(x - 10, y)
+       t.end_fill()
+
+
+def ulica(x, y):
+       przesun(x - 250, y + 50)
+       t.fillcolor("black")
+       t.begin_fill()
+
+       t.goto(x + 200, y + 50)
+       t.goto(x + 200, y - 50)
+       t.goto(x - 250, y - 50)
+       t.goto(x - 250, y + 50)
+       t.end_fill()
+
+       t.fillcolor("white")
+       t.begin_fill()
+       przesun(x - 250, y + 5)
+       t.goto(x + 200, y + 5)
+       t.goto(x + 200, y + 2)
+       t.goto(x - 250, y + 2)
+       t.goto(x - 250, y + 5)
+
+       t.end_fill()
+
+       t.fillcolor("white")
+       t.begin_fill()
+       przesun(x - 250, y - 5)
+       t.goto(x + 200, y - 5)
+       t.goto(x + 200, y - 2)
+       t.goto(x - 250, y - 2)
+       t.goto(x - 250, y - 5)
+
+       t.end_fill()
+
 
 def main():
-  # wywołanie wielokrotne funkcji domek(); main(0 wywołuje kolejne domki
-  domek(0,0,"beige","brown") #domek, w kolorze ścianek beige czyli beżowym, a dachu bridge
-  domek(110,50,"beige","brown")
-  domek(-80,-30,"beige","brown")
+
+       slonce()
+       ulica(0, 0)
+       
+       domek(0, 125, "pink", "red")
+       domek(110, 125, "beige", "brown")
+       domek(-110, 125, "beige", "brown")
+       domek(-220, 125, "beige", "black")
+
+       domek(0, -100, "beige", "white")
+       domek(110, -100, "beige", "brown")
+       domek(-110, -100, "red", "pink")
+       domek(-220, -100, "white", "black")
+
+       drzewo(230, 20)
+       drzewo(-280, 20)
+       drzewo(250, -40)
+       drzewo(-300, -40)
+
 
 main()
 
-## Pod spodem kod startowy programu turtl
-# Fullscreen the canvas
 screen = turtle.Screen()
 screen.setup(1.0, 1.0)
-
-# Begin!
-# t = turtle.Turtle()
-
-for c in ['red', 'green', 'blue', 'yellow']:
-  t.color(c)
-  t.forward(75)
-  t.left(90)
 
 screen.mainloop()
